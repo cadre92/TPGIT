@@ -33,6 +33,7 @@
   <mirrors>
     <mirror>
       <id>Nexus</id>
+  <id>Nexus</id>
       <name>Nexus Forge GE</name>
       <url>https://forge-ge.groupinfra.com/nexus/content/repositories/central/</url>
       <mirrorOf>central</mirrorOf>
