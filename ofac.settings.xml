@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd">
+
+  <!--
+    Note 1 : pour l'utilisation de ce fichier, il est important de spécifier les paramètres suivants :
+               ofac.local.repo : représente le répertoire dans lequel sont présent les .jar OFAC tiers
+               local.repository : représente le répertoire contenant le repo local
+               
+               Note 2 : pour les commandes de déploiement sur le Nexus, il est nécessaire de spécifier additionnellement  les paramètres suivants :
+               nexus.login : login pour le Nexus
+               nexus.pwd : pwd pour le Nexus
+               
+               Exemple de commande :
+               mvn -s ../../maven/settings.xml clean package -Dofac.local.repo="C:\01_CGI\03_Projets\01_OFAC\git\ofac2-repository" -Dlocal.repository="C:\01_CGI\03_Projets\01_OFAC\maven\.m2"
+  -->
+  <localRepository>${user.home}/.m2/ofac_repository</localRepository>
+  
+  <servers>
+    <server>
+      <id>nexus-snapshots</id>
+      <username>${nexus.login}</username>
+      <password>${nexus.pwd}</password>
+    </server>
+    <server>
+      <id>nexus-releases</id>
+      <username>${nexus.login}</username>
+      <password>${nexus.pwd}</password>
+    </server>
+  </servers>
+
+  <mirrors>
+    <mirror>
+      <id>Nexus</id>
+      <name>Nexus Forge GE</name>
+      <url>https://forge-ge.groupinfra.com/nexus/content/repositories/central/</url>
+      <mirrorOf>central</mirrorOf>
+    </mirror>
+  </mirrors>
+  
+   <profiles>
+	  <profile>
+		<id>forge-ge</id>
+		<properties>
+		   <repo.snapshot.url>https://forge-ge.groupinfra.com/nexus/content/repositories/snapshots/</repo.snapshot.url>
+		   <repo.release.url>https://forge-ge.groupinfra.com/nexus/content/repositories/releases/</repo.release.url>
+		</properties>
+		<repositories>
+		   <repository>
+			  <id>nexus-snapshots</id>
+			  <name>nexus-snapshots</name>
+			  <url>https://forge-ge.groupinfra.com/nexus/content/repositories/snapshots/</url>
+			  <releases>
+				 <enabled>false</enabled>
+			  </releases>
+			  <snapshots>
+				 <enabled>true</enabled>
+			  </snapshots>
+		   </repository>
+		   <repository>
+			  <id>nexus-releases</id>
+			  <name>nexus-releases</name>
+			  <url>https://forge-ge.groupinfra.com/nexus/content/repositories/releases/</url>
+			  <releases>
+				 <enabled>true</enabled>
+			  </releases>
+			  <snapshots>
+				 <enabled>false</enabled>
+			  </snapshots>
+		   </repository>
+		</repositories>
+	  </profile>
+   </profiles>
+  
+   <activeProfiles>
+		<activeProfile>forge-ge</activeProfile>
+   </activeProfiles>
+
+</settings>

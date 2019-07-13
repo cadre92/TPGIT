@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Thu Mar 21 16:30:32 CET 2019
+http\://repo.spring.io/spring-roo/.error=Could not transfer artifact org.springframework.boot\:spring-boot-starter-parent\:pom\:1.4.1.RELEASE from/to spring-roo-repository (http\://repo.spring.io/spring-roo)\: Failed to connect to repo.spring.io/35.241.58.96\:80
+@default-spring-roo-repository-http\://repo.spring.io/spring-roo/.lastUpdated=1553182232782
+@default-central-https\://repo.maven.apache.org/maven2/.lastUpdated=1550583703365
+https\://repo.maven.apache.org/maven2/.error=Could not transfer artifact org.springframework.boot\:spring-boot-starter-parent\:pom\:1.4.1.RELEASE from/to central (https\://repo.maven.apache.org/maven2)\: Failed to connect to repo.maven.apache.org/151.101.16.215\:443
